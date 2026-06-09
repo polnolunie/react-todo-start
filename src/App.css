@@ -1,42 +1,64 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todoapp {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.main {
+  margin-top: 20px;
 }
 
-.card {
-  padding: 2em;
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.read-the-docs {
-  color: #888;
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
+.todo-list li.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.todo-list input[type="text"] {
+  flex: 1;
+  padding: 6px 8px;
+}
+
+.todo-list button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #eee;
+  cursor: pointer;
+}
+
+.todo-list button:hover {
+  background: #ddd;
+}
+
+.todo-list input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
 }

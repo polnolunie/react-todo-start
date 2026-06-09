@@ -1,15 +1,39 @@
-export default function Task() {
+import { useState } from "react";
+
+export default function Task({
+  task,
+  toggleTask,
+  deleteTask,
+  editTask,
+  saveTask,
+}) {
+  const [value, setValue] = useState(task.title);
+
+  const handleSave = () => {
+    saveTask(task.id, value);
+  };
+
   return (
-    <li className="completed">
-      <div className="view">
-        <input className="toggle" type="checkbox" />
-        <label>
-          <span className="description">Completed task</span>
-          <span className="created">created 17 seconds ago</span>
-        </label>
-        <button className="icon icon-edit"></button>
-        <button className="icon icon-destroy"></button>
-      </div>
+    <li>
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleTask(task.id)}
+      />
+
+      {task.edit ? (
+        <input value={value} onChange={(e) => setValue(e.target.value)} />
+      ) : (
+        <span>{task.title}</span>
+      )}
+
+      {task.edit ? (
+        <button onClick={handleSave}>Save</button>
+      ) : (
+        <button onClick={() => editTask(task.id)}>Edit</button>
+      )}
+
+      <button onClick={() => deleteTask(task.id)}>Delete</button>
     </li>
   );
 }
