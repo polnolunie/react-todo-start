@@ -20,19 +20,17 @@ export default function Task({
         checked={task.completed}
         onChange={() => toggleTask(task.id)}
       />
-
       {task.edit ? (
         <input value={value} onChange={(e) => setValue(e.target.value)} />
       ) : (
         <span>{task.title}</span>
       )}
-
+      onKeyDown={(e) => console.log(e)}
       {task.edit ? (
         <button onClick={handleSave}>Save</button>
       ) : (
         <button onClick={() => editTask(task.id)}>Edit</button>
       )}
-
       <button onClick={() => deleteTask(task.id)}>Delete</button>
     </li>
   );
