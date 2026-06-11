@@ -21,11 +21,15 @@ export default function Task({
         onChange={() => toggleTask(task.id)}
       />
       {task.edit ? (
-        <input value={value} onChange={(e) => setValue(e.target.value)} />
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => console.log(e)}
+        />
       ) : (
         <span>{task.title}</span>
       )}
-      onKeyDown={(e) => console.log(e)}
+
       {task.edit ? (
         <button onClick={handleSave}>Save</button>
       ) : (
